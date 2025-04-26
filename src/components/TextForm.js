@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 
 export default function TextForm(props) {
 
+  
   const handleUpClick= ()=>{
     let newText =text.toUpperCase();
     setText(newText);
@@ -49,19 +50,19 @@ export default function TextForm(props) {
         <div className="mb-3">
           <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnchange} style={{backgroundColor:props.mode=== 'light'?'white':'black',color:props.mode=== 'light'?'black':'white'}}></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>convert to uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>convert to lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}>clear</button>
-        <button className="btn btn-primary mx-1" onClick={handleCopyClick}>Copy</button>
-        <button className="btn btn-primary mx-1" onClick={handlePasteClick}>paste</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>convert to uppercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>convert to lowercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>clear</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}>Copy</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlePasteClick}>paste</button>
 
       </div>
         <div className="container my-3">
           <h2>Your summary</h2>
-          <p>{text.split (" ").length}words and {text.length} charactors</p>
-          <p>time taken to read the paragraph is  {(0.67 * text.split (" ").length)/60 } minutes</p>
+          <p>{text.split (" ").filter((element)=>{return element.length!==0}).length}words and {text.length} charactors</p>
+          <p>time taken to read the paragraph is  {(0.008 * text.split (" ").filter((element)=>{return element.length!==0}).length)/60 } Minutes to read</p>
           <h2>preview</h2>
-          <p>{text.length>0?text:"Enter somthing in text box above to preview it here"}</p>
+          <p>{text.length>0?text:"Nothing to preview"}</p>
         </div>
     </>
   )
