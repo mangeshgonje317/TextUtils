@@ -54,7 +54,7 @@ export default function TextForm(props) {
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>convert to lowercase</button>
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>clear</button>
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}>Copy</button>
-        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlePasteClick}>paste</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handlePasteClick}>paste</button>
 
       </div>
         <div className="container my-3">
